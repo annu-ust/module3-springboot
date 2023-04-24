@@ -1,0 +1,27 @@
+package com.ust.iocautowiring;
+
+public class B {
+	
+	A a;//dependency variable
+
+	//public A getA() {
+	//	return a;
+	//}
+public B() {
+	// TODO Auto-generated constructor stub
+}//default constructor is needed to call autowiring byName,Bytype
+	public B(A a) {
+		super();
+		this.a = a;
+		System.out.println("from B() constructor....");
+	}
+
+	public void setA(A a) {
+		//by name ,by type will use setter injection
+		System.out.println("setA() called....");
+		this.a = a;
+	}
+
+
+
+}

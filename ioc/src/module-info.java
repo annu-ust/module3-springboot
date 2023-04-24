@@ -1,0 +1,22 @@
+/**
+ * 
+ */
+/**
+ * @author Administrator
+ *
+ */
+module ioc {
+	requires spring.beans;
+	requires spring.core;
+	requires java.sql;
+	requires spring.context;
+	exports com.ust.ioc;
+	exports com.ust.ioc2;
+	exports com.ust.iocautowiring;
+	exports com.ust.javaconfig;
+	requires java.annotation;
+	requires lombok;
+	
+	opens com.ust.javaconfig to spring.core;
+	
+}

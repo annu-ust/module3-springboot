@@ -1,0 +1,32 @@
+package com.ust.rest;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import com.ust.rest.repository.ProductRepository;
+import com.ust.rest.resource.Product;
+
+@SpringBootApplication
+public class FirstrestApplication implements CommandLineRunner{//adds command line runner in 20/4/23
+     @Autowired
+	ProductRepository repo;//added on 20/4/23
+	
+	public static void main(String[] args) {
+		ConfigurableApplicationContext ctxt=SpringApplication.run(FirstrestApplication.class, args);
+		System.out.println(ctxt.containsBean("productRepository"));
+	}
+
+	@Override
+	public void run(String... args) throws Exception {//added on 20/4/23
+		// TODO Auto-generated method stub
+		System.out.println("from CommandLineRunner");//added on 20/4/23
+	
+    List<Product>products=repo.findAll();//added on 20/4/23
+     System.out.println(products.size());//added on 20/4/23
+	}
+}
